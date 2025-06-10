@@ -6,6 +6,7 @@ import "../styles/App.scss";
 function App() {
   const [characters, setCharacters] = useState([]);
   const [search, setSearch] = useState("");
+  const [selectedHouse, setSelectedHouse] = useState("");
 
   useEffect(() => {
     fetch("https://hp-api.onrender.com/api/characters/house/gryffindor")
@@ -30,10 +31,23 @@ function App() {
           <input
             id="search"
             type="text"
-            placeholder="Harry, Hermione, ..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+        </form>
+        <form className="filters">
+          <label htmlFor="house">Selecciona la casa:</label>
+          <select
+            id="house"
+            value={selectedHouse}
+            onChange={(e) => setSelectedHouse(e.target.value)}
+          >
+            <option value="">Todas</option>
+            <option value="Gryffindor">Gryffindor</option>
+            <option value="Slytherin">Slytherin</option>
+            <option value="Hufflepuff">Hufflepuff</option>
+            <option value="Ravenclaw">Ravenclaw</option>
+          </select>
         </form>
 
         <ul className="gallery">

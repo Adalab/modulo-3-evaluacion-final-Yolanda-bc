@@ -1,6 +1,9 @@
-:root{
-    background-color: grey;
+:root {
+  background-color: grey;
 }
-.gallery{
-    display: flex;
+.image {
+  border: solid rgb(68, 1, 1);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 300px;
 }

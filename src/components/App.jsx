@@ -52,7 +52,7 @@ function App() {
 
         <ul className="gallery">
           {filteredCharacters.map((char) => (
-            <CharacterCard key={char.name} character={char} />
+            <CharacterCard key={char.id} character={char} />
           ))}
         </ul>
       </main>

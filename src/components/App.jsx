@@ -30,15 +30,23 @@ function App() {
       </header>
 
       <main>
-        <Filters
-          search={search}
-          setSearch={setSearch}
-          selectedHouse={selectedHouse}
-          setSelectedHouse={setSelectedHouse}
-        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Filters
+                search={search}
+                setSearch={setSearch}
+                selectedHouse={selectedHouse}
+                setSelectedHouse={setSelectedHouse}
+              />
+            }
+          />
+          <Route path="/characterId" element={<CharacterCard />} />
+        </Routes>
         <ul className="gallery">
           {filteredCharacters.length === 0 ? (
-            <li>No hay personajes que coincidan.</li>
+            <li>No existen personajes con ese nombre.</li>
           ) : (
             filteredCharacters.map((char) => (
               <CharacterCard key={char.id} character={char} />

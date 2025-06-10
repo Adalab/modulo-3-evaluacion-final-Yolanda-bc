@@ -1,6 +1,7 @@
 // src/App.jsx
 import { useEffect, useState } from "react";
 import CharacterCard from "./CharacterCard";
+import Filters from "./Filters";
 import "../styles/App.scss";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
       .then((data) => setCharacters(data));
   }, []);
 
-  // Filtrar personajes por nombre y casa
+  // Filtrado de personajes
   const filteredCharacters = characters.filter((char) => {
     const nameMatch = char.name.toLowerCase().includes(search.toLowerCase());
     const houseMatch = selectedHouse === "" || char.house === selectedHouse;
@@ -28,32 +29,20 @@ function App() {
       </header>
 
       <main>
-        <form className="filters">
-          <label htmlFor="search">Busca por personaje:</label>
-          <input
-            id="search"
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-
-          <label htmlFor="house">Selecciona la casa:</label>
-          <select
-            id="house"
-            value={selectedHouse}
-            onChange={(e) => setSelectedHouse(e.target.value)}
-          >
-            <option value="Gryffindor">Gryffindor</option>
-            <option value="Slytherin">Slytherin</option>
-            <option value="Hufflepuff">Hufflepuff</option>
-            <option value="Ravenclaw">Ravenclaw</option>
-          </select>
-        </form>
-
+        <Filters
+          search={search}
+          setSearch={setSearch}
+          selectedHouse={selectedHouse}
+          setSelectedHouse={setSelectedHouse}
+        />
         <ul className="gallery">
-          {filteredCharacters.map((char) => (
-            <CharacterCard key={char.id} character={char} />
-          ))}
+          {filteredCharacters.length === 0 ? (
+            <li>No hay personajes que coincidan.</li>
+          ) : (
+            filteredCharacters.map((char) => (
+              <CharacterCard key={char.name} character={char} />
+            ))
+          )}
         </ul>
       </main>
     </div>

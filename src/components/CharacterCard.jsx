@@ -1,4 +1,3 @@
-// src/components/CharacterCard.jsx
 function CharacterCard({ character }) {
   const imageUrl = character.image
     ? character.image

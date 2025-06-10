@@ -1,5 +1,3 @@
-https://yolanda-bc.github.io/modulo-2-evaluacion-final-Yolanda-bc/
-
 # BUSCADOR DE PERSONAJES DE HARRY POTTER
 
 Esta es una aplicación web desarrollada en React que permite buscar personajes de Harry Potter usando la API de su página oficial.

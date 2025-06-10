@@ -9,15 +9,17 @@ function App() {
   const [selectedHouse, setSelectedHouse] = useState("");
 
   useEffect(() => {
-    fetch("https://hp-api.onrender.com/api/characters/house/gryffindor")
+    fetch("https://hp-api.onrender.com/api/characters")
       .then((res) => res.json())
       .then((data) => setCharacters(data));
   }, []);
 
-  // Filtrar personajes por nombre
-  const filteredCharacters = characters.filter((char) =>
-    char.name.toLowerCase().includes(search.toLowerCase())
-  );
+  // Filtrar personajes por nombre y casa
+  const filteredCharacters = characters.filter((char) => {
+    const nameMatch = char.name.toLowerCase().includes(search.toLowerCase());
+    const houseMatch = selectedHouse === "" || char.house === selectedHouse;
+    return nameMatch && houseMatch;
+  });
 
   return (
     <div className="principal_page">
@@ -34,15 +36,13 @@ function App() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-        </form>
-        <form className="filters">
+
           <label htmlFor="house">Selecciona la casa:</label>
           <select
             id="house"
             value={selectedHouse}
             onChange={(e) => setSelectedHouse(e.target.value)}
           >
-            <option value="">Todas</option>
             <option value="Gryffindor">Gryffindor</option>
             <option value="Slytherin">Slytherin</option>
             <option value="Hufflepuff">Hufflepuff</option>
@@ -51,8 +51,8 @@ function App() {
         </form>
 
         <ul className="gallery">
-          {filteredCharacters.map((char, index) => (
-            <CharacterCard key={index} character={char} />
+          {filteredCharacters.map((char) => (
+            <CharacterCard key={char.name} character={char} />
           ))}
         </ul>
       </main>

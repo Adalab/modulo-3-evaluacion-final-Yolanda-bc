@@ -3,7 +3,8 @@ import { Link } from "react-router";
 function CharacterCard({ character }) {
   const imageUrl = character.image
     ? character.image
-    : `https://placehold.co/210x295/666666/ffffff?text=${encodeURIComponent(
+    : /*$ es una función de JS que hace que aparezcan los datos de los personajes cuando no hay foto*/
+      `https://placehold.co/210x295/666666/ffffff?text=${encodeURIComponent(
         character.name
       )}`;
 

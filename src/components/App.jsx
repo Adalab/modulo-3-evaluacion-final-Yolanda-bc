@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router";
 import CharacterCard from "./CharacterCard";
@@ -45,11 +44,13 @@ function App() {
           <Route path="/characterId" element={<CharacterCard />} />
         </Routes>
         <ul className="gallery">
+          {/*length obtiene el numero de los personajes que se filtra
+          ? condicion verdadera y : condicion falsa*/}
           {filteredCharacters.length === 0 ? (
             <li>No existen personajes con ese nombre.</li>
           ) : (
-            filteredCharacters.map((char) => (
-              <CharacterCard key={char.id} character={char} />
+            filteredCharacters.map((character) => (
+              <CharacterCard key={character.id} character={character} />
             ))
           )}
         </ul>

@@ -1,5 +1,6 @@
 // src/App.jsx
 import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router";
 import CharacterCard from "./CharacterCard";
 import Filters from "./Filters";
 import "../styles/App.scss";
@@ -40,7 +41,7 @@ function App() {
             <li>No hay personajes que coincidan.</li>
           ) : (
             filteredCharacters.map((char) => (
-              <CharacterCard key={char.name} character={char} />
+              <CharacterCard key={char.id} character={char} />
             ))
           )}
         </ul>

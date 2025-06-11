@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "./",
+  "homepage": "http://beta.adalab.es/modulo-3-evaluacion-final-Yolanda-bc/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

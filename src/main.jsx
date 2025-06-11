@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+/*import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./components/App.jsx";
 import { HashRouter } from "react-router";
@@ -9,4 +9,16 @@ createRoot(document.getElementById("root")).render(
       <App />
     </HashRouter>
   </StrictMode>
+);*/
+
+//react-router-dom
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./components/App";
+import { BrowserRouter } from "react-router-dom";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );

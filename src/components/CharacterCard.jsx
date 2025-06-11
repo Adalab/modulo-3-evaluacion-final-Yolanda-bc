@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 function CharacterCard({ character }) {
   const imageUrl = character.image
@@ -9,12 +9,12 @@ function CharacterCard({ character }) {
       )}`;
 
   return (
-    <Link to={"/characterId/" + character.id}>
+    <Link to={`/detail/${character.id}`}>
       <li className="card">
         <figure>
           <img src={imageUrl} alt={character.name} className="image" />
-          <figcaption>{character.name}</figcaption>
-          <p>{character.species}</p>
+          <figcaption className="character_name">{character.name}</figcaption>
+          <p className="character_specie">{character.species}</p>
         </figure>
       </li>
     </Link>

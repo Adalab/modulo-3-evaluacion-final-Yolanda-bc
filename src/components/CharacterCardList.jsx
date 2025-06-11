@@ -1,9 +1,8 @@
-// CharacterCardList.jsx
 import CharacterCard from "./CharacterCard";
 
 function CharacterCardList({ characters }) {
   return (
-    <ul className="card-list">
+    <ul className="card_list">
       {characters.map((character) => (
         <li key={character.id}>
           <CharacterCard character={character} />

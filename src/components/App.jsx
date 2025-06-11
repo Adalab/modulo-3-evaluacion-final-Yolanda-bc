@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router";
 import CharacterCard from "./CharacterCard";
 import Filters from "./Filters";
+import CharacterDetail from "./CharacterDetail";
 import "../styles/App.scss";
 
 function App() {
@@ -33,27 +34,32 @@ function App() {
           <Route
             path="/"
             element={
-              <Filters
-                search={search}
-                setSearch={setSearch}
-                selectedHouse={selectedHouse}
-                setSelectedHouse={setSelectedHouse}
-              />
+              <>
+                <Filters
+                  search={search}
+                  setSearch={setSearch}
+                  selectedHouse={selectedHouse}
+                  setSelectedHouse={setSelectedHouse}
+                />
+                <ul className="gallery">
+                  {/*length obtiene el numero de los personajes que se filtra
+          ? condicion verdadera y : condicion falsa*/}
+                  {filteredCharacters.length === 0 ? (
+                    <li>No existen personajes con ese nombre.</li>
+                  ) : (
+                    filteredCharacters.map((character) => (
+                      <CharacterCard key={character.id} character={character} />
+                    ))
+                  )}
+                </ul>
+              </>
             }
           />
-          <Route path="/characterId" element={<CharacterCard />} />
+          <Route
+            path="/detail/:characterId"
+            element={<CharacterDetail characters={characters} />}
+          />
         </Routes>
-        <ul className="gallery">
-          {/*length obtiene el numero de los personajes que se filtra
-          ? condicion verdadera y : condicion falsa*/}
-          {filteredCharacters.length === 0 ? (
-            <li>No existen personajes con ese nombre.</li>
-          ) : (
-            filteredCharacters.map((character) => (
-              <CharacterCard key={character.id} character={character} />
-            ))
-          )}
-        </ul>
       </main>
     </div>
   );

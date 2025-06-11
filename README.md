@@ -45,6 +45,8 @@ FUTURAS MEJORAS:
 - Mostrar más detalles de los personajes.
 - Ordenar alfabeticamente los personajes.
 - Perfeccionar el código.
+- Perfeccionar el diseño de la página.
+- añadir mas filtros para la busqueda
 
 LICENCIA:
 Este proyecto es de uso libre con fines educativos.

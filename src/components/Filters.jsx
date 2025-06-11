@@ -18,7 +18,6 @@ function Filters({ search, setSearch, selectedHouse, setSelectedHouse }) {
           value={selectedHouse}
           onChange={(e) => setSelectedHouse(e.target.value)}
         >
-          <option value="">Todas</option>
           <option value="Gryffindor">Gryffindor</option>
           <option value="Slytherin">Slytherin</option>
           <option value="Hufflepuff">Hufflepuff</option>

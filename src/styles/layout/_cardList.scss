@@ -1,0 +1,21 @@
+.image {
+  border: solid rgb(68, 1, 1);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 300px;
+  margin-left: 2rem;
+}
+.character_name,
+.character_specie
+ {
+    margin-left: 8rem;
+    width: 100%;
+      color: #7f0909; /* Rojo oscuro tipo Gryffindor */
+  text-decoration: none;
+  
+}
+.character_name:hover,
+.character_specie:hover {
+  color: #d4af37; /* Dorado al pasar el mouse */
+  text-decoration: underline; /* O lo que prefieras */
+}

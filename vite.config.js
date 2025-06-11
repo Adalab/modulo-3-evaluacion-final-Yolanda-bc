@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "./",
   plugins: [react()],
   server: {
     open: "/",
@@ -10,5 +11,4 @@ export default defineConfig({
       usePolling: true,
     },
   },
-  base: "/modulo-3-evaluacion-final-Yolanda-bc/",
 });
